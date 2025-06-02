@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي الإبداعي لـ أحمد رشدي سالم</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4f46e5; /* بنفسجي-أزرق عميق */
+            --secondary-color: #14b8a6; /* تركواز مشرق */
+            --accent-color: #facc15; /* أصفر ذهبي */
+            --text-dark: #111827; /* أسود ناعم */
+            --text-light: #f9fafb; /* أبيض ناصع */
+            --bg-dark: #0f172a; /* أزرق ليلي داكن */
+            --bg-light: #f1f5f9; /* رمادي فاتح جداً */
+            --bg-glass: rgba(255, 255, 255, 0.05);
+            --border-glass: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        .rtl { direction: rtl; }
+        .ltr { direction: ltr; }
+
+        /* --- Hero Header --- */
+        .hero-header {
+            min-height: 100vh; /* شاشة كاملة */
+            background-color: var(--bg-dark); /* لون أساسي للخلفية */
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        #interactive-bg { /* لتأثير الخلفية الجديد */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInHeroContent 2s ease-out forwards;
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2rem 2.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border-glass);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        @keyframes fadeInHeroContent {
+            from { opacity: 0; transform: translateY(50px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .hero-header h1 {
+            font-family: 'Orbitron', 'Cairo', sans-serif;
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-weight: 900; /* أثقل */
+            letter-spacing: 1.5px;
+            margin-bottom: 0.75rem;
+            color: var(--text-light);
+            text-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
+        }
+
+        .hero-header .subtitle {
+            font-size: clamp(1.2rem, 3.5vw, 1.85rem);
+            font-weight: 500; /* أثقل قليلاً */
+            color: #e5e7eb; /* رمادي فاتح أكثر */
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: typingSubtitle 3.5s steps(40, end) 1.5s forwards, blinkCaret .75s step-end infinite;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid var(--accent-color);
+            width: 0;
+        }
+        
+        @keyframes typingSubtitle { from { width: 0 } to { width: 100% } }
+        @keyframes blinkCaret { from, to { border-color: transparent } 50% { border-color: var(--accent-color); } }
+
+        .initials-avatar-hero {
+            width: 130px; 
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem; 
+            font-weight: 700;
+            margin: 0 auto 2rem auto; 
+            border: 6px solid rgba(255,255,255,0.2);
+            box-shadow: 0 0 30px rgba(var(--rgb-secondary-color, 20, 184, 166),0.5), 0 0 40px rgba(var(--rgb-primary-color, 79, 70, 229),0.4);
+            animation: pulseAndRotateAvatar 5s infinite ease-in-out;
+        }
+
+        @keyframes pulseAndRotateAvatar {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.08) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        .scroll-down-indicator { display: none; } /* سنعتمد على جاذبية التصميم */
+
+        /* --- General Section Styling --- */
+        .section { padding: 5rem 1rem; }
+        @media (min-width: 768px) { .section { padding: 7rem 2rem; } }
+
+        .section-title {
+            font-family: 'Orbitron', 'Cairo', sans-serif;
+            font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 3.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+            box-shadow: 0 0 15px var(--secondary-color);
+        }
+
+        /* --- Card Styling (Enhanced) --- */
+        .card {
+            background-color: #ffffff;
+            border-radius: 1.25rem; /* أكثر استدارة */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.07), 0 8px 10px rgba(0,0,0,0.04);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #e5e7eb;
+        }
+        .card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 40px rgba(var(--rgb-primary-color, 79, 70, 229),0.15), 0 15px 20px rgba(0,0,0,0.08);
+        }
+        .card-content { padding: 2rem; }
+        .card-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .card-subtitle {
+            font-size: 1rem;
+            color: #374151; /* أغمق قليلاً */
+            margin-bottom: 0.75rem;
+        }
+        .card-text {
+            font-size: 1.05rem;
+            color: #4b5563; /* أغمق قليلاً */
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Button Styling (Enhanced) --- */
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            border-radius: 0.75rem; /* أكثر استدارة */
+            font-weight: 700; /* أثقل */
+            text-align: center;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            letter-spacing: 0.5px;
+            border: 2px solid transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            box-shadow: 0 5px 15px rgba(var(--rgb-secondary-color, 20, 184, 166), 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(var(--rgb-secondary-color, 20, 184, 166), 0.4);
+        }
+        .btn-primary::before { display: none; } /* إزالة تأثير اللمعان القديم، الاعتماد على التدرج والظل */
+
+        /* --- Interests Section (Enhanced) --- */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* أعرض قليلاً */
+            gap: 2.5rem;
+        }
+        .interest-card {
+            padding: 2rem;
+            text-align: center;
+            border-radius: 1rem;
+            background: linear-gradient(145deg, #ffffff, #f0f0f5);
+        }
+        .interest-card:hover {
+            border-color: transparent; /* الاعتماد على الظل */
+        }
+        .interest-icon { /* استخدام أيقونات Font Awesome */
+            font-size: 3.5rem;
+            margin-bottom: 1.25rem;
+            color: var(--primary-color);
+            transition: transform 0.4s ease, color 0.4s ease;
+        }
+        .interest-card:hover .interest-icon {
+            transform: scale(1.25) rotateY(360deg);
+            color: var(--secondary-color);
+        }
+        .interest-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+        .interest-tag {
+            background-color: var(--primary-color); 
+            color: var(--text-light);
+            padding: 0.4rem 1rem;
+            border-radius: 0.5rem; /* زوايا أقل حدة */
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 0.25rem;
+            display: inline-block;
+            box-shadow: 0 3px 6px rgba(var(--rgb-primary-color, 79, 70, 229), 0.2);
+            transition: transform 0.3s ease;
+        }
+        .interest-tag:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Contact Section (Creative & Astonishing) --- */
+        #contact {
+            background: linear-gradient(160deg, var(--bg-dark) 10%, var(--primary-color) 90%);
+            color: var(--text-light);
+        }
+        #contact .section-title {
+            color: var(--text-light);
+        }
+        #contact .section-title::after {
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-w-4xl mx-auto;
+        }
+        .contact-item {
+            background: var(--bg-glass);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border-glass);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        .contact-label {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+        .contact-value, .contact-value a {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            word-break: break-all; /* لضمان عدم تجاوز الروابط الطويلة */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-value a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        .contact-social-links {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-glass);
+        }
+        .contact-social-links p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .contact-social-links a {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--bg-dark);
+            color: #a1a1aa; /* رمادي أفتح */
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        .footer p { margin-bottom: 0.75rem; font-size: 1rem;}
+        .footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+        .footer a:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+    </style>
+</head>
+<body class="rtl">
+
+    <header class="hero-header">
+        <canvas id="interactive-bg"></canvas>
+        <div class="hero-content">
+            <div class="initials-avatar-hero" data-aos="zoom-in" data-aos-delay="200">
+                <span>أ ر</span>
+            </div>
+            <h1 data-aos="fade-down" data-aos-delay="500">أحمد رشدي سالم</h1>
+            <p id="subtitle-text" class="subtitle" data-aos="fade-up" data-aos-delay="900">طالب بالفرقة الأولى، كلية التجارة - جامعة بنها</p>
+            <a href="#about" class="btn btn-primary mt-10" data-aos="zoom-in" data-aos-delay="1400">اكتشف مسيرتي</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title" data-aos="fade-up">من أنا؟</h2>
+                <div class="max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-lg md:text-xl leading-relaxed text-gray-700 mb-8">
+                        طالب بالفرقة الأولى بكلية التجارة في جامعة بنها، أجمع بين الشغف بعالم الأعمال والفضول العميق تجاه التكنولوجيا الحديثة. دراستي الأكاديمية هي الأساس، ولكني أستثمر وقتي أيضًا في تطوير مهارات عملية في مجالات أرى أنها تشكل مستقبل الصناعات.
+                    </p>
+                </div>
+
+                <div class="interests-grid mt-16">
+                     <div class="card interest-card" data-aos="fade-right" data-aos-delay="300">
+                        <i class="fas fa-chart-line interest-icon"></i>
+                        <h3 class="interest-title">تحليل البيانات</h3>
+                        <p class="text-gray-600">أؤمن بأن البيانات هي لغة المستقبل. أسعى لإتقان أدوات وتقنيات تحليلها لاستخلاص رؤى قيمة تساهم في اتخاذ قرارات مستنيرة ودفع عجلة الابتكار.</p>
+                    </div>
+                    <div class="card interest-card" data-aos="fade-up" data-aos-delay="450">
+                        <i class="fas fa-laptop-code interest-icon"></i>
+                        <h3 class="interest-title">البرمجة</h3>
+                        <p class="text-gray-600">أستكشف عالم الأكواد والخوارزميات، بهدف بناء حلول برمجية فعالة وتطبيقات مبتكرة تساهم في تبسيط المهام وتعزيز الكفاءة.</p>
+                    </div>
+                    <div class="card interest-card" data-aos="fade-left" data-aos-delay="600">
+                        <i class="fas fa-cube interest-icon"></i>
+                        <h3 class="interest-title">التصميم ثلاثي الأبعاد</h3>
+                        <p class="text-gray-600">أجد متعة في تحويل الأفكار المجردة إلى نماذج ثلاثية الأبعاد ملموسة، مما يفتح آفاقًا واسعة في مجالات التصور، النماذج الأولية، والإبداع البصري.</p>
+                    </div>
+                </div>
+                 <p class="text-center text-lg text-gray-700 mt-16" data-aos="fade-up" data-aos-delay="700">
+                    أسعى دائمًا لتطبيق ما أتعلمه على أرض الواقع واكتساب خبرات عملية. شهادتي في "أساسيات ريادة الأعمال" من LinkedIn Learning هي خطوة في هذا الاتجاه، وأنا متحمس لمواصلة رحلة التعلم والتطور.
+                </p>
+            </div>
+        </section>
+
+        <section id="certificates" class="section bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title" data-aos="fade-up">شهاداتي وإنجازاتي</h2>
+                <div class="grid md:grid-cols-1 gap-10 max-w-2xl mx-auto">
+                    <div class="card" data-aos="zoom-in-up" data-aos-delay="200">
+                        <div class="card-content text-center md:text-right">
+                            <h3 class="card-title">أساسيات ريادة الأعمال</h3>
+                            <p class="card-subtitle"><strong class="font-medium">الجهة المانحة:</strong> LinkedIn Learning</p>
+                            <p class="card-subtitle"><strong class="font-medium">تاريخ الإكمال:</strong> 4 أكتوبر 2024</p>
+                            <p class="card-text mt-4">
+                                دورة مكثفة قدمت لي فهمًا عميقًا للمبادئ الأساسية اللازمة لتأسيس وتنمية المشاريع الريادية، من مرحلة توليد الفكرة إلى بناء نموذج عمل مستدام وقابل للنمو.
+                            </p>
+                            <a href="https://www.linkedin.com/learning/certificates/dd7e435fef0efb125b6e502ed7f3e26cc97dd10725dc9699aaec92690d6161a9?trk=share_certificate" target="_blank" class="btn btn-primary mt-4" aria-label="عرض شهادة أساسيات ريادة الأعمال">
+                                <i class="fas fa-award mr-2 ml-2"></i> عرض الشهادة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title" data-aos="fade-up">لنتواصل!</h2>
+                <div class="contact-grid" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-item" data-aos="zoom-in-right" data-aos-delay="300">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <h4 class="contact-label">البريد الإلكتروني</h4>
+                        <p class="contact-value"><a href="mailto:vcfcdef780@gmail.com">vcfcdef780@gmail.com</a></p>
+                    </div>
+                    <div class="contact-item" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fas fa-phone-alt contact-icon"></i>
+                        <h4 class="contact-label">رقم الهاتف</h4>
+                        <p class="contact-value ltr"><a href="tel:+2001025380065">+20 01025380065</a></p>
+                    </div>
+                    <div class="contact-item" data-aos="zoom-in-left" data-aos-delay="500">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <h4 class="contact-label">الموقع الحالي</h4>
+                        <p class="contact-value">كفر ابو الحسن، مركز قويسنا، محافظة المنوفية</p>
+                    </div>
+                </div>
+                <div class="max-w-4xl mx-auto mt-12 text-center contact-social-links" data-aos="fade-up" data-aos-delay="600">
+                     <p class="text-white">تابعني على:</p>
+                    <a href="https://www.linkedin.com/in/ahmed-roshdy-509bb4289" target="_blank" class="contact-value" aria-label="حساب لينكدإن">
+                        <i class="fab fa-linkedin mr-2 ml-2"></i> https://www.linkedin.com/in/ahmed-roshdy-509bb4289
+                    </a>
+                    <a href="https://www.facebook.com/ahmed.roshdy.37017794" target="_blank" class="contact-value" aria-label="حساب فيسبوك">
+                        <i class="fab fa-facebook-square mr-2 ml-2"></i> https://www.facebook.com/ahmed.roshdy.37017794
+                    </a>
+                    <a href="https://www.instagram.com/ars_272005/" target="_blank" class="contact-value" aria-label="حساب انستجرام">
+                        <i class="fab fa-instagram mr-2 ml-2"></i> https://www.instagram.com/ars_272005/
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> أحمد رشدي سالم. جميع الحقوق محفوظة.</p>
+        <p>تم تصميم هذا الموقع وتطويره بشغف وإبداع.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200, // مدة أطول للحركة
+            once: true,    
+            offset: 80,  // تعديل طفيف  
+            easing: 'ease-out-cubic', // منحنى تسارع مختلف
+        });
+
+        // Enhanced Interactive Background
+        const canvas = document.getElementById('interactive-bg');
+        const ctx = canvas.getContext('2d');
+        let heroHeaderHeight = document.querySelector('.hero-header').offsetHeight;
+        canvas.width = window.innerWidth;
+        canvas.height = heroHeaderHeight; 
+
+        let particles = [];
+        let mouse = { x: null, y: null, radius: (canvas.height/150) * (canvas.width/150) }; // زيادة نصف قطر تأثير الماوس
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.clientX;
+            mouse.y = event.clientY;
+        });
+         window.addEventListener('mouseout', () => {
+            mouse.x = undefined;
+            mouse.y = undefined;
+        });
+
+
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.size = size;
+                this.color = color;
+                this.originalSize = size;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) {
+                    this.directionX = -this.directionX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.directionY = -this.directionY;
+                }
+
+                // Mouse interactivity - repel/attract effect & size change
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                
+                let maxDistance = mouse.radius;
+                let force = (maxDistance - distance) / maxDistance; // Normalized force
+                let directionCheck = 100; // How far the particle moves away/towards
+
+                if (distance < mouse.radius) {
+                    this.x -= forceDirectionX * force * 2; // Repel effect stronger
+                    this.y -= forceDirectionY * force * 2;
+                    if (this.size < this.originalSize + 2) this.size += 0.2; // Grow slightly
+                } else {
+                    if (this.size > this.originalSize) this.size -= 0.1; // Shrink back
+                }
+
+
+                this.x += this.directionX * 0.3; // Slower base speed
+                this.y += this.directionY * 0.3;
+                this.draw();
+            }
+        }
+
+        function initInteractiveBg() {
+            particles = [];
+            let numberOfParticles = (canvas.width * canvas.height) / 10000; // كثافة معتدلة
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = Math.random() * 2 + 0.5; // جسيمات أصغر
+                let x = Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2;
+                let y = Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2;
+                let directionX = (Math.random() * .4) - .2; // حركة أبطأ
+                let directionY = (Math.random() * .4) - .2;
+                let color = `rgba(255, 255, 255, ${Math.random() * 0.25 + 0.1})`; // أكثر خفوتًا
+                particles.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        function animateInteractiveBg() {
+            requestAnimationFrame(animateInteractiveBg);
+            ctx.clearRect(0,0,innerWidth, innerHeight);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+            }
+            connectParticles();
+        }
+        
+        function connectParticles(){
+            let opacityValue = 0.3; // أعلى قليلاً للخطوط
+            for(let a = 0; a < particles.length; a++){
+                for(let b = a; b < particles.length; b++){
+                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x))
+                                 + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                    if(distance < (canvas.width/10) * (canvas.height/10)){ // نطاق أوسع للاتصال
+                        opacityValue = 1 - (distance/15000); // تعديل قيمة التلاشي
+                        ctx.strokeStyle = `rgba(200, 220, 255, ${opacityValue * 0.3})`; // لون أفتح للخطوط
+                        ctx.lineWidth = 0.5; // خطوط أنعم
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        initInteractiveBg();
+        animateInteractiveBg();
+
+        window.addEventListener('resize', () => {
+            heroHeaderHeight = document.querySelector('.hero-header').offsetHeight;
+            canvas.width = window.innerWidth;
+            canvas.height = heroHeaderHeight;
+            mouse.radius = (canvas.height/120) * (canvas.width/120); // تحديث نصف قطر الماوس
+            initInteractiveBg(); 
+        });
+
+        const subtitleElement = document.getElementById('subtitle-text');
+        const originalText = "طالب بالفرقة الأولى، كلية التجارة - جامعة بنها";
+        subtitleElement.textContent = ''; 
+        subtitleElement.style.width = 'auto'; 
+        subtitleElement.style.borderRight = '.15em solid var(--accent-color)'; 
+
+        let i = 0;
+        function typeWriter() {
+            if (i < originalText.length) {
+                subtitleElement.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 80); // تعديل سرعة الكتابة قليلاً
+            } else {
+                subtitleElement.style.borderRight = '.15em solid var(--accent-color)';
+                setInterval(() => {
+                    subtitleElement.style.borderRightColor = subtitleElement.style.borderRightColor === 'transparent' ? 'var(--accent-color)' : 'transparent';
+                }, 750);
+            }
+        }
+        
+        const heroContentDelay = parseFloat(getComputedStyle(document.querySelector('.hero-content h1')).getPropertyValue('animation-delay') || '0s') * 1000;
+        const subtitleAOSDelay = parseFloat(subtitleElement.getAttribute('data-aos-delay') || '0');
+
+        setTimeout(typeWriter, heroContentDelay + subtitleAOSDelay + 300); // تعديل التأخير
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+
